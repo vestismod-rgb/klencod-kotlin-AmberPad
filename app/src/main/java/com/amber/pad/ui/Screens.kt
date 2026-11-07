@@ -35,7 +35,6 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.key.KeyEventType
-import androidx.compose.ui.input.key.nativeKeyEvent
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
 import androidx.compose.ui.platform.LocalClipboardManager
@@ -120,7 +119,7 @@ fun GamesScreen(repo: SettingsRepo, st: AppSettings, goActivate: () -> Unit) {
     val scope = rememberCoroutineScope()
     val sh by shizukuState()
     val up by serverState()
-    val active = up || (st.mode == "shizuku_legacy" && active)
+    val active = up || (st.mode == "shizuku_legacy" && sh == 2)
     var adding by remember { mutableStateOf(false) }
     val cs = MaterialTheme.colorScheme
 
